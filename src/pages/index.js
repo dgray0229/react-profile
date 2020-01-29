@@ -20,13 +20,13 @@ class Index extends React.Component {
             <Layout location={this.props.location} title={siteTitle}>
                 <SEO title="Welcome" />
                 <Bio />
-                <hr class="m-0" />
+                <hr className="m-0" />
                 <Experience />
-                <hr class="m-0" />
+                <hr className="m-0" />
                 <Education />
-                <hr class="m-0" />
+                <hr className="m-0" />
                 <Interests />
-                <hr class="m-0" />
+                <hr className="m-0" />
             </Layout>
         )
     }

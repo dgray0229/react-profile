@@ -31,7 +31,28 @@ import Image from "gatsby-image"
             }
           `)
           const { author, social } = data.site.siteMetadata
-
+            window.addEventListener('scroll', (event) => {
+              const navBar = document.getElementById("sideNav");
+              Array.from(document.getElementsByTagName("section"), section => {
+                let navLink = navBar.querySelector(`a[href="#${section.getAttribute("id")}"]`),
+                    top = section.offsetTop,
+                    left = section.offsetLeft,
+                    width = section.offsetWidth,
+                    height = section.offsetHeight,
+                    isInViewport = (
+                      top >= window.pageYOffset &&
+                      left >= window.pageXOffset &&
+                      (top + height) <= (window.pageYOffset + window.innerHeight) &&
+                      (left + width) <= (window.pageXOffset + window.innerWidth)
+                    )
+              
+                if (isInViewport && navLink) {
+                  navLink.classList.add("active");
+                } else {
+                  navLink.classList.remove("active");
+                }
+              });
+            }, false); 
           return (
             <header>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
@@ -59,9 +80,6 @@ import Image from "gatsby-image"
                             </Nav.Item>
                             <Nav.Item as="li" className="nav-item">
                                 <Nav.Link className="nav-link js-scroll-trigger" href="#education">Education</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item as="li" className="nav-item">
-                                <Nav.Link className="nav-link js-scroll-trigger" href="#skills">Skills</Nav.Link>
                             </Nav.Item>
                             <Nav.Item as="li" className="nav-item">
                                 <Nav.Link className="nav-link js-scroll-trigger" href="#interests">Interests</Nav.Link>
