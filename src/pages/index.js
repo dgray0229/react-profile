@@ -3,51 +3,36 @@ import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
+import Experience from "../components/experience";
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import Education from "../components/education";
+import Interests from "../components/interests";
+import Awards from "../components/awards";
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug}>
-              <header>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
-      </Layout>
-    )
-  }
+class Index extends React.Component {
+    render() {
+        const { data } = this.props;
+        const siteTitle = data.site.siteMetadata.title;
+
+        return (
+            <Layout location={this.props.location} title={siteTitle}>
+                <SEO title="Welcome" />
+                <Bio />
+                <hr class="m-0" />
+                <Experience />
+                <hr class="m-0" />
+                <Education />
+                <hr class="m-0" />
+                <Interests />
+                <hr class="m-0" />
+            </Layout>
+        )
+    }
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {

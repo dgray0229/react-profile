@@ -1,11 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
+    title: `Hello, I'm Devin Gray`,
+    author: `Devin Gray`,
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://devingray.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `devingrayio`,
+      facebook: `devin.gray.3726`,
+      github: `dgray0229`,
+      linkedin: `devinmichaelgray`,
     },
   },
   plugins: [
@@ -73,6 +76,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-sass`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
